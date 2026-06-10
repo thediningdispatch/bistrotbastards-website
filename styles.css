@@ -1,0 +1,154 @@
+/* ============================================================
+   BISTROT BASTARDS — site agence (recodé depuis Webflow)
+   Stack : statique, zéro dépendance, déployable Netlify.
+   Charte : beige #f8f7f3 · encre #0a0a0a · olive #a7ae8a
+   Typo  : Space Grotesk (display) · Inter (texte) · Roboto Mono (labels)
+   ============================================================ */
+
+:root {
+  --beige:      #f8f7f3;
+  --cream:      #f2f1ed;
+  --line:       #dddbd1;
+  --ink:        #0a0a0a;
+  --ink-soft:   #474747;
+  --olive:      #a7ae8a;
+  --olive-deep: #6f7656;
+  --maxw: 1180px;
+  --pad: clamp(20px, 5vw, 64px);
+  --r: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: var(--beige);
+  color: var(--ink);
+  line-height: 1.5;
+  font-size: 17px;
+}
+img, svg, video { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--pad); }
+.eyebrow {
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--olive-deep);
+}
+h1, h2, h3 { font-family: "Space Grotesk", sans-serif; font-weight: 600; letter-spacing: -.02em; line-height: 1.05; }
+h1 { font-size: clamp(2.6rem, 6vw, 5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+h3 { font-size: 1.3rem; line-height: 1.2; }
+p  { color: var(--ink-soft); }
+.lead { font-size: clamp(1.05rem, 2vw, 1.35rem); color: var(--ink); max-width: 46ch; }
+
+/* ---- Boutons ---- */
+.btn {
+  display: inline-flex; align-items: center; gap: .5em;
+  font-family: "Space Grotesk", sans-serif; font-weight: 500; font-size: 15px;
+  padding: 13px 22px; border-radius: 100px; border: 1px solid var(--ink);
+  background: var(--ink); color: var(--beige); transition: .2s;
+}
+.btn:hover { background: transparent; color: var(--ink); }
+.btn--ghost { background: transparent; color: var(--ink); }
+.btn--ghost:hover { background: var(--ink); color: var(--beige); }
+
+/* ---- Navbar ---- */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--beige) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.nav__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.nav__logo { display: flex; align-items: center; gap: 10px; font-family: "Space Grotesk"; font-weight: 600; letter-spacing: -.01em; }
+.nav__logo img { height: 26px; }
+.nav__links { display: flex; align-items: center; gap: 28px; }
+.nav__links a { font-size: 14px; color: var(--ink-soft); transition: .2s; }
+.nav__links a:hover { color: var(--ink); }
+.nav__links .btn { color: var(--beige); }
+.nav__links .btn:hover { color: var(--ink); }
+.nav__burger { display: none; }
+
+/* ---- Hero ---- */
+.hero { position: relative; overflow: hidden; }
+.hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .22; }
+.hero__inner { position: relative; padding: clamp(70px, 12vw, 150px) 0 clamp(50px, 8vw, 110px); }
+.hero h1 { max-width: 16ch; margin: 18px 0 22px; }
+.hero h1 em { font-style: normal; color: var(--olive-deep); }
+.hero__cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+.hero__scroll { margin-top: 60px; font-family: "Roboto Mono", monospace; font-size: 12px; letter-spacing: .1em; color: var(--ink-soft); }
+
+/* ---- Sections ---- */
+section { padding: clamp(56px, 9vw, 110px) 0; }
+.section-head { max-width: 52ch; margin-bottom: 48px; }
+.section-head h2 { margin: 14px 0 16px; }
+
+/* ---- Galerie ---- */
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.gallery img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 10px; }
+.gallery img:nth-child(1), .gallery img:nth-child(6) { aspect-ratio: 3/5; }
+
+/* ---- Services ---- */
+.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.card {
+  background: var(--cream); border: 1px solid var(--line); border-radius: var(--r);
+  padding: 28px; transition: .2s;
+}
+.card:hover { border-color: var(--olive); transform: translateY(-3px); }
+.card__num { font-family: "Roboto Mono", monospace; font-size: 12px; color: var(--olive-deep); }
+.card h3 { margin: 14px 0 8px; }
+.card p { font-size: 15px; }
+
+/* ---- Clients ---- */
+.clients { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.client {
+  display: flex; flex-direction: column; gap: 10px;
+  background: var(--cream); border: 1px solid var(--line); border-radius: var(--r);
+  padding: 26px; transition: .2s;
+}
+.client:hover { border-color: var(--olive); }
+.client__top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.client__tag { font-family: "Roboto Mono", monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--olive-deep); }
+.client p { font-size: 15px; }
+.client__links { display: flex; gap: 16px; margin-top: 4px; font-size: 14px; }
+.client__links a { color: var(--olive-deep); border-bottom: 1px solid var(--olive); padding-bottom: 1px; }
+.client__links a:hover { color: var(--ink); }
+
+/* ---- CTA contact ---- */
+.contact { background: var(--ink); color: var(--beige); border-radius: 24px; padding: clamp(40px, 7vw, 80px); text-align: center; }
+.contact h2 { color: var(--beige); }
+.contact p { color: color-mix(in srgb, var(--beige) 75%, transparent); max-width: 48ch; margin: 16px auto 28px; }
+.contact .btn { border-color: var(--beige); background: var(--beige); color: var(--ink); }
+.contact .btn:hover { background: transparent; color: var(--beige); }
+.contact__row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ---- Footer ---- */
+.footer { border-top: 1px solid var(--line); padding: 48px 0; }
+.footer__inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; align-items: center; }
+.footer__brand { font-family: "Space Grotesk"; font-weight: 600; }
+.footer small, .footer a { font-family: "Roboto Mono", monospace; font-size: 12px; color: var(--ink-soft); letter-spacing: .04em; }
+.footer__links { display: flex; gap: 20px; }
+
+/* ---- Blog ---- */
+.post-list { display: grid; gap: 2px; border-top: 1px solid var(--line); }
+.post-row { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: baseline; padding: 24px 0; border-bottom: 1px solid var(--line); transition: .2s; }
+.post-row:hover { padding-inline: 8px; }
+.post-row h3 { font-size: 1.5rem; }
+.post-row time { font-family: "Roboto Mono", monospace; font-size: 12px; color: var(--ink-soft); white-space: nowrap; }
+.post-row .eyebrow { display: block; margin-bottom: 6px; }
+.article { max-width: 70ch; }
+.article h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 16px 0 10px; }
+.article .meta { font-family: "Roboto Mono", monospace; font-size: 12px; color: var(--ink-soft); margin-bottom: 36px; }
+.article h2 { font-size: 1.7rem; margin: 38px 0 12px; }
+.article p { color: var(--ink); margin-bottom: 18px; }
+.article a { color: var(--olive-deep); border-bottom: 1px solid var(--olive); }
+.empty-note { font-family: "Roboto Mono", monospace; font-size: 13px; color: var(--ink-soft); padding: 40px 0; }
+
+/* ---- Responsive ---- */
+@media (max-width: 860px) {
+  .nav__links a:not(.btn) { display: none; }
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+  .cards, .clients { grid-template-columns: 1fr; }
+}
